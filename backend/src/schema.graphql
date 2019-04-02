@@ -1,0 +1,15 @@
+type Mutation {
+  hello: String!
+}
+
+type Query {
+  getNordstromrack(size: Float): [Product!]!
+  getSierra(Size: Float): [Product!]!
+}
+
+type Product {
+  name: String!
+  price_sale: Float!
+  number: String
+  price_retail: Float
+}
