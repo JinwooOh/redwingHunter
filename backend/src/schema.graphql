@@ -4,7 +4,7 @@ type Mutation {
 
 type Query {
   getNordstromrack(size: Float): [Product!]!
-  getSierra(Size: Float): [Product!]!
+  getSierra(size: Float): [Product!]!
 }
 
 type Product {
