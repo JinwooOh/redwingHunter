@@ -2,10 +2,9 @@ import React from 'react';
 import { Query } from 'react-apollo';
 import Item from './Item';
 
-export default function ShopQuery({ query, queryMethod, shop, size }) {
+export default function ShopQuery({ query, queryMethod, size }) {
   return (
     <div>
-      <h3>{shop}</h3>
       <Query query={query} variables={{ size }}>
         {({ data, error, refetch, loading }) => {
           if (loading) return <p>Loading...</p>;
