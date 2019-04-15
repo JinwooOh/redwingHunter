@@ -1,6 +1,11 @@
 import React from 'react';
 import { Query } from 'react-apollo';
+import styled from 'styled-components';
 import Item from './Item';
+
+const ItemList = styled.div`
+  font-family: Tahoma;
+`;
 
 export default function ShopQuery({ query, queryMethod, size }) {
   return (
@@ -14,10 +19,10 @@ export default function ShopQuery({ query, queryMethod, size }) {
               <button type="button" onClick={() => refetch()}>
                 Refetch!
               </button>
-              {data[queryMethod].map(item => (
-                <div>
+              {data[queryMethod].map((item, i) => (
+                <ItemList key={i}>
                   <Item item={item} />
-                </div>
+                </ItemList>
               ))}
             </div>
           );

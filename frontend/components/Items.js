@@ -1,8 +1,52 @@
 import React, { Component } from 'react';
-import { Query } from 'react-apollo';
 import gql from 'graphql-tag';
-import Item from './Item';
+import styled from 'styled-components';
 import ShopQuery from './ShopQuery';
+
+const ShopWrapper = styled.div``;
+const ShopTitle = styled.div``;
+const ShopButton = styled.button`
+  background: ${props => props.theme.grey};
+  box-shadow: ${props => props.theme.bs};
+  color: white;
+  font-size: 16px;
+  margin: 0 10px;
+`;
+const Form = styled.form`
+  box-shadow: 0 0 5px 3px rgba(0, 0, 0, 0.05);
+  background: rgba(0, 0, 0, 0.02);
+  border: 5px solid white;
+  padding: 20px;
+  font-size: 1.5rem;
+  line-height: 1.5;
+  font-weight: 600;
+  label {
+    display: block;
+    margin-bottom: 1rem;
+  }
+  input,
+  textarea,
+  select {
+    width: 100%;
+    padding: 0.5rem;
+    font-size: 1rem;
+    border: 1px solid black;
+    &:focus {
+      outline: 0;
+      border-color: ${props => props.theme.red};
+    }
+  }
+  button,
+  input[type='submit'] {
+    width: auto;
+    background: red;
+    color: white;
+    border: 0;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 2px 10px;
+  }
+`;
 
 const NORDSTROM_QUERY = gql`
   query NORDSTROM_QUERY($size: Float) {
@@ -41,43 +85,54 @@ class Items extends Component {
     }/`;
     return (
       <div>
-        <div className="search">
-          <label htmlFor="title">
-            Size:
-            <input
-              type="nubmer"
-              id="size"
-              name="size"
-              placeholder="Default 7D"
-              step="0.1"
-              required
-              value={this.state.size}
-              onChange={this.handleChange}
-            />
-          </label>
-        </div>
-        <div>
-          <h3>Nordstrom Rack</h3>
-          <a href={nordShopURL} target="_blank" rel="noopener noreferrer">
-            Shop
-          </a>
+        <Form>
+          <div className="search">
+            <label htmlFor="title">
+              Size to search:
+              <input
+                type="nubmer"
+                id="size"
+                name="size"
+                placeholder="Default 7D"
+                step="0.1"
+                required
+                value={this.state.size}
+                onChange={this.handleChange}
+              />
+            </label>
+          </div>
+        </Form>
+
+        <ShopWrapper>
+          <ShopTitle>
+            <h3>
+              Nordstrom Rack
+              <a href={nordShopURL} target="_blank" rel="noopener noreferrer">
+                <ShopButton>Shop</ShopButton>
+              </a>
+            </h3>
+          </ShopTitle>
           <ShopQuery
             query={NORDSTROM_QUERY}
             queryMethod="getNordstromrack"
             size={parseInt(this.state.size)}
           />
-        </div>
-        <div>
-          <h3>Sierra</h3>
-          <a href={sierraShopURL} target="_blank" rel="noopener noreferrer">
-            Shop
-          </a>
+        </ShopWrapper>
+        <ShopWrapper>
+          <ShopTitle>
+            <h3>
+              Sierra
+              <a href={sierraShopURL} target="_blank" rel="noopener noreferrer">
+                <ShopButton>Shop</ShopButton>
+              </a>
+            </h3>
+          </ShopTitle>
           <ShopQuery
             query={STP_QUERY}
             queryMethod="getSierra"
             size={parseInt(this.state.size)}
           />
-        </div>
+        </ShopWrapper>
       </div>
     );
   }
