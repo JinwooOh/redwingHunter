@@ -4,7 +4,8 @@
   "scripts": {
     "dev": "next",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "export": "npm run build && next export"
   },
   "dependencies": {
     "apollo-boost": "^0.1.16",
@@ -23,5 +24,6 @@
   "license": "ISC",
   "devDependencies": {
     "babel-plugin-styled-components": "^1.10.0"
-  }
+  },
+  "proxy": "http://localhost:4000"
 }

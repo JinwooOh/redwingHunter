@@ -4,9 +4,13 @@ const server = createServer();
 
 server.start(
   {
+    // port: 4000,
     cors: {
       credentials: true,
-      origin: 'http://localhost:3000',
+      origin: [
+        'https://adoring-ritchie-d533a1.netlify.com/',
+        'http://localhost:3000',
+      ],
     },
   },
   deets => {
