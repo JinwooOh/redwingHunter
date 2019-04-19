@@ -1,4 +1,5 @@
 const createServer = require('./createServer');
+require('dotenv').config({ path: 'variables.env' });
 
 const server = createServer();
 
@@ -7,10 +8,7 @@ server.start(
     // port: 4000,
     cors: {
       credentials: true,
-      origin: [
-        'https://adoring-ritchie-d533a1.netlify.com/',
-        'http://localhost:3000',
-      ],
+      origin: process.env.FRONTEND_URL,
     },
   },
   deets => {
