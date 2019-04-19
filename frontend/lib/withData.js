@@ -1,13 +1,10 @@
 import withApollo from 'next-with-apollo';
 import ApolloClient from 'apollo-boost';
-import { endpoint } from '../config';
+import { endpoint, prodendpoint } from '../config';
 
 function createClient({ headers }) {
   return new ApolloClient({
-    uri:
-      process.env.NODE_ENV === 'development'
-        ? 'http://localhost:4000'
-        : endpoint,
+    uri: process.env.NODE_ENV === 'development' ? endpoint : prodendpoint,
     request: operation => {
       operation.setContext({
         fetchOptions: {
