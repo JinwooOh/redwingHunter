@@ -4,8 +4,9 @@
   "scripts": {
     "dev": "next",
     "build": "next build",
-    "start": "next start",
-    "export": "npm run build && next export"
+    "start": "next start -p $PORT",
+    "export": "npm run build && next export",
+    "heroku-postbuild": "next build"
   },
   "dependencies": {
     "apollo-boost": "^0.1.16",
