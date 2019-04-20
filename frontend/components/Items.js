@@ -94,7 +94,7 @@ class Items extends Component {
                 id="size"
                 name="size"
                 placeholder="Default 7D"
-                step="0.1"
+                step="0.5"
                 required
                 value={this.state.size}
                 onChange={this.handleChange}
@@ -115,7 +115,7 @@ class Items extends Component {
           <ShopQuery
             query={NORDSTROM_QUERY}
             queryMethod="getNordstromrack"
-            size={parseInt(this.state.size)}
+            size={parseFloat(this.state.size)}
           />
         </ShopWrapper>
         <ShopWrapper>
@@ -130,7 +130,7 @@ class Items extends Component {
           <ShopQuery
             query={STP_QUERY}
             queryMethod="getSierra"
-            size={parseInt(this.state.size)}
+            size={parseFloat(this.state.size)}
           />
         </ShopWrapper>
       </div>

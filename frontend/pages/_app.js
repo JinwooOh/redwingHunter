@@ -15,7 +15,6 @@ class MyApp extends App {
   }
 
   render() {
-    console.log(this.props);
     const { Component, apollo, pageProps } = this.props;
 
     return (
