@@ -36,7 +36,6 @@ const Query = {
     );
     const result = [];
     const $ = cheerio.load(data);
-
     $('div[class="productCard-title-name"]').each((i, item) => {
       const tempProduct = {
         name: (result[i] = $(item)
@@ -46,7 +45,10 @@ const Query = {
       };
       result[i] = tempProduct;
     });
-    $('span[class="ourPrice"]').each((i, item) => {
+
+    $(
+      'div[class="productPricing prices priceBlock pricingRightBorder"] > span'
+    ).each((i, item) => {
       const tempPrice = $(item)
         .text()
         .replace('$', '')
