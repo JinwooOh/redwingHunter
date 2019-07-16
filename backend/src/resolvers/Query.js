@@ -5,7 +5,7 @@ const Query = {
   async getNordstromrack(parent, args, ctx) {
     const size = args.size || 7;
     const { data } = await axios.get(
-      `https://www.nordstromrack.com/api/search2/catalog/search?class=Boots&department=Shoes&division=Men&includeFlash=false&includePersistent=true&limit=99&page=1&query=red%20wing&sizes%5B%5D=${size}&sizes%5B%5D=One%20Size&sort=relevancy`
+      `https://www.nordstromrack.com/api/search2/catalog/search?class=Boots&department=Shoes&division=Men&includeFlash=false&includePersistent=true&limit=99&page=1&query=red%20wing&sizes%5B%5D=${size}&sort=relevancy`
     );
     const result = [];
 
