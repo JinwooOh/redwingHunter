@@ -77,12 +77,8 @@ class Items extends Component {
   };
 
   render() {
-    const nordShopURL = `https://www.nordstromrack.com/shop/search?query=red%20wing&division=Men&department=Shoes&class=Boots&sizes%5B%5D=${
-      this.state.size
-    }&sizes%5B%5D=One%20Size&sort=relevancy`; // including one size
-    const sierraShopURL = `https://www.sierra.com/s~red-wing/sizefamily~shoe%20size!${
-      this.state.size
-    }/`;
+    const nordShopURL = `https://www.nordstromrack.com/shop/search?query=red%20wing&division=Men&department=Shoes&class=Boots&sizes%5B%5D=${this.state.size}&sort=relevancy`;
+    const sierraShopURL = `https://www.sierra.com/s~red-wing/sizefamily~shoe%20size!${this.state.size}/`;
     return (
       <div>
         <Form>
